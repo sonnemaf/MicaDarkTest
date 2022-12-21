@@ -1,0 +1,63 @@
+﻿<Page x:Class="MicaDarkTest.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+      RequestedTheme="Dark"
+      muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <!--  This top margin is the height of the custom TitleBar  -->
+        <Thickness x:Key="NavigationViewContentMargin">0,48,0,0</Thickness>
+    </Page.Resources>
+    <Grid>
+        <Border x:Name="AppTitleBar"
+                Height="40"
+                Margin="48,8,0,0"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Canvas.ZIndex="1"
+                IsHitTestVisible="True">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="AppFontIcon"
+                       Width="16"
+                       Height="16"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Source="Assets/Square44x44Logo.png" />
+                <TextBlock x:Name="AppTitle"
+                           Margin="12,0,0,0"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource CaptionTextBlockStyle}"
+                           Text="Test App Title" />
+            </StackPanel>
+        </Border>
+        <muxc:NavigationView x:Name="NavigationViewControl"
+                             Canvas.ZIndex="0"
+                             DisplayModeChanged="NavigationViewControl_DisplayModeChanged"
+                             Header="Title"
+                             IsBackButtonVisible="Visible"
+                             IsTitleBarAutoPaddingEnabled="False">
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem Content="Text"
+                                         Icon="Target" />
+                <muxc:NavigationViewItem Content="Text"
+                                         Icon="Target" />
+                <muxc:NavigationViewItem Content="Text"
+                                         Icon="Target" />
+                <muxc:NavigationViewItem Content="Text"
+                                         Icon="Target" />
+                <muxc:NavigationViewItem Content="Text"
+                                         Icon="Target" />
+            </muxc:NavigationView.MenuItems>
+            <Grid>
+                <Frame x:Name="contentFrame">
+                    <Grid>
+                        <TextBlock Padding="56,16,0,0">Page content!</TextBlock>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </muxc:NavigationView>
+    </Grid>
+</Page>
