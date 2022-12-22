@@ -18,16 +18,14 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace MicaDarkTest
-{
+namespace MicaDarkTest {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
-    {
+    public sealed partial class MainPage : Page {
         public MainPage() {
             this.InitializeComponent();
-            
+
             //this.RequestedTheme = ElementTheme.Dark;
 
 
@@ -111,5 +109,23 @@ namespace MicaDarkTest
                 AppTitleBar.Margin = new Thickness(expandedIndent, currMargin.Top, currMargin.Right, currMargin.Bottom);
             }
         }
+        private void RadioButtonLight_Click(object sender, RoutedEventArgs e) {
+            // Don't set the Requested theme on the Page which has Mica BackdropMaterial,
+            // Use Windows.Current.Content instead
+            //this.RequestedTheme = ElementTheme.Light;
+            if (Window.Current.Content is FrameworkElement root) {
+                root.RequestedTheme = ElementTheme.Light;
+            }
+        }
+
+        private void RadioButtonDark_Click(object sender, RoutedEventArgs e) {
+            // Don't set the Requested theme on the Page which has Mica BackdropMaterial,
+            // Use Windows.Current.Content instead
+            //this.RequestedTheme = ElementTheme.Dark;
+            if (Window.Current.Content is FrameworkElement root) {
+                root.RequestedTheme = ElementTheme.Dark;
+            }
+        }
+
     }
 }

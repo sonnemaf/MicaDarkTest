@@ -4,7 +4,6 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-      RequestedTheme="Dark"
       muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
       mc:Ignorable="d">
     <Page.Resources>
@@ -53,8 +52,15 @@
             </muxc:NavigationView.MenuItems>
             <Grid>
                 <Frame x:Name="contentFrame">
-                    <Grid>
-                        <TextBlock Padding="56,16,0,0">Page content!</TextBlock>
+                    <Grid Padding="56,16,0,0">
+                        <StackPanel>
+                            <TextBlock>Theme</TextBlock>
+                            <RadioButton Click="RadioButtonLight_Click"
+                                         IsChecked="True"
+                                         Content="Light" />
+                            <RadioButton Click="RadioButtonDark_Click"
+                                         Content="Dark" />
+                        </StackPanel>
                     </Grid>
                 </Frame>
             </Grid>
